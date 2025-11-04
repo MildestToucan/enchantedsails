@@ -35,7 +35,7 @@ object BoatExtras {
     }
 
     fun addBoatSpeed(boat: AbstractBoat, stack: ItemStack, inputUp: Boolean, inputDown: Boolean): Float {
-        if (!boat.isInWater) {
+        if (boat.status == AbstractBoat.Status.ON_LAND) {
             return 0.0f
         }
 
