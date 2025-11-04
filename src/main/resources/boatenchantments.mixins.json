@@ -1,10 +1,14 @@
 {
-	"required": true,
-	"package": "cc.dvitski.boatenchantments.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-	],
-	"injectors": {
-		"defaultRequire": 1
+    "required": true,
+    "package": "cc.dvitski.boatenchantments.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "mixins": [
+        "AbstractBoatMixin",
+        "BoatItemMixin",
+        "ServerEntityMixin",
+        "VehicleEntityMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
 	}
 }

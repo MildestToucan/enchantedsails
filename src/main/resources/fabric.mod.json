@@ -18,7 +18,7 @@
 	"entrypoints": {
 		"main": [
 			{
-				"value": "cc.dvitski.boatenchantments.BoatEnchantments",
+				"value": "cc.dvitski.boatenchantments.BoatEnchantmentsMod",
 				"adapter": "kotlin"
 			}
 		],
