@@ -2,7 +2,7 @@ package cc.dvitski.boatenchantments
 
 import cc.dvitski.boatenchantments.enchantment.BoatEnchantments
 import cc.dvitski.boatenchantments.network.BoatEnchantmentsPacketTypes
-import cc.dvitski.boatenchantments.network.EntityGlintPayload
+import cc.dvitski.boatenchantments.network.BoatItemStackPayload
 import cc.dvitski.boatenchantments.tag.BoatEnchantmentsItemTags
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents
@@ -28,7 +28,7 @@ object BoatEnchantmentsMod : ModInitializer {
         BoatEnchantments
         BoatEnchantmentsItemTags
 
-        PayloadTypeRegistry.playS2C().register(BoatEnchantmentsPacketTypes.ENTITY_GLINT, EntityGlintPayload.STREAM_CODEC)
+        PayloadTypeRegistry.playS2C().register(BoatEnchantmentsPacketTypes.BOAT_ITEM_STACK, BoatItemStackPayload.STREAM_CODEC)
 
         DefaultItemComponentEvents.MODIFY.register { context ->
             context.modify(BoatItem::class::isInstance) { builder, _ ->

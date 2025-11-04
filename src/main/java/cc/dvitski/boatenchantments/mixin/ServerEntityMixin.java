@@ -1,7 +1,7 @@
 package cc.dvitski.boatenchantments.mixin;
 
 import cc.dvitski.boatenchantments.entity.BoatAccessor;
-import cc.dvitski.boatenchantments.network.EntityGlintPayload;
+import cc.dvitski.boatenchantments.network.BoatItemStackPayload;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.level.ServerEntity;
 import net.minecraft.server.level.ServerPlayer;
@@ -24,9 +24,7 @@ public class ServerEntityMixin {
     private void onAddPairing(ServerPlayer player, CallbackInfo ci) {
         if (this.entity instanceof BoatAccessor accessor) {
             ItemStack stack = accessor.getItemStack();
-            if (stack != null) {
-                ServerPlayNetworking.send(player, new EntityGlintPayload(this.entity.getId(), stack.isEnchanted()));
-            }
+            ServerPlayNetworking.send(player, new BoatItemStackPayload(this.entity.getId(), stack));
         }
     }
 }

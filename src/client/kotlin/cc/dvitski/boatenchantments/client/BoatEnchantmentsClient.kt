@@ -14,11 +14,11 @@ object BoatEnchantmentsClient : ClientModInitializer {
 	override fun onInitializeClient() {
         logger.info("Initializing $MOD_NAME client")
 
-        ClientPlayNetworking.registerGlobalReceiver(BoatEnchantmentsPacketTypes.ENTITY_GLINT) { payload, context ->
+        ClientPlayNetworking.registerGlobalReceiver(BoatEnchantmentsPacketTypes.BOAT_ITEM_STACK) { payload, context ->
             val client = context.client()
             client.level?.let { level ->
                 level.getEntity(payload.id)?.let { entity ->
-                    ClientBoatExtras.receiveGlintPayload(entity, payload.glint)
+                    ClientBoatExtras.receiveItemStackPayload(entity, payload.stack)
                 }
             }
         }

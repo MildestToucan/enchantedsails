@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.entity.state.BoatRenderState
 import net.minecraft.client.renderer.texture.OverlayTexture
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.vehicle.AbstractBoat
+import net.minecraft.world.item.ItemStack
 
 object ClientBoatExtras {
     val GLINT_RENDER_STATE: RenderStateDataKey<Boolean> = RenderStateDataKey.create { "Glint ((${BoatEnchantmentsMod.MOD_NAME}))" }
@@ -26,14 +27,14 @@ object ClientBoatExtras {
             return
         }
 
-        state.setData(GLINT_RENDER_STATE, entity.clientGlint)
+        state.setData(GLINT_RENDER_STATE, entity.itemStack.isEnchanted)
     }
 
-    fun receiveGlintPayload(entity: Entity, glint: Boolean) {
+    fun receiveItemStackPayload(entity: Entity, stack: ItemStack) {
         if (entity !is BoatAccessor) {
             return
         }
 
-        entity.clientGlint = glint
+        entity.itemStack = stack
     }
 }
