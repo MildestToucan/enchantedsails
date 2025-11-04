@@ -1,0 +1,52 @@
+{
+	"schemaVersion": 1,
+	"id": "boatenchantments",
+	"version": "${version}",
+	"name": "Boat Enchantments",
+	"description": "Send your screenshots to the server! Save folders go missing and people go - archive your screenshots server-side!",
+	"authors": [
+		"dvitski"
+	],
+	"contact": {
+		"homepage": "https://dvitski.cc",
+        "sources": "https://github.com/dvitski/boatenchantments",
+        "issues": "https://github.com/dvitski/boatenchantments/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/boatenchantments/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "cc.dvitski.boatenchantments.BoatEnchantments",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "cc.dvitski.boatenchantments.client.BoatEnchantmentsClient",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "cc.dvitski.boatenchantments.data.BoatEnchantmentsDataGenerator",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"boatenchantments.mixins.json",
+		{
+			"config": "boatenchantments.client.mixins.json",
+			"environment": "client"
+		}
+	],
+    "accessWidener": "boatenchantments.accesswidener",
+	"depends": {
+		"minecraft": "~1.21.10",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*",
+        "fabric-permissions-api-v0": "*"
+	}
+}
