@@ -1,0 +1,12 @@
+{
+    "required": true,
+    "package": "cc.dvitski.enchantedsails.mixin.client",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "AbstractBoatRendererMixin",
+        "BoatRendererMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+	}
+}

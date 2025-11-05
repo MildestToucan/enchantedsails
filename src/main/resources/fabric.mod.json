@@ -1,52 +1,51 @@
 {
 	"schemaVersion": 1,
-	"id": "boatenchantments",
+	"id": "enchantedsails",
 	"version": "${version}",
-	"name": "Boat Enchantments",
-	"description": "Send your screenshots to the server! Save folders go missing and people go - archive your screenshots server-side!",
+	"name": "Enchanted Sails",
+	"description": "Enchantments for your boats!",
 	"authors": [
 		"dvitski"
 	],
 	"contact": {
 		"homepage": "https://dvitski.cc",
-        "sources": "https://github.com/dvitski/boatenchantments",
-        "issues": "https://github.com/dvitski/boatenchantments/issues"
+        "sources": "https://github.com/dvitski/enchantedsails",
+        "issues": "https://github.com/dvitski/enchantedsails/issues"
 	},
 	"license": "MIT",
-	"icon": "assets/boatenchantments/icon.png",
+	"icon": "assets/enchantedsails/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			{
-				"value": "cc.dvitski.boatenchantments.BoatEnchantmentsMod",
+				"value": "cc.dvitski.enchantedsails.EnchantedSails",
 				"adapter": "kotlin"
 			}
 		],
 		"client": [
 			{
-				"value": "cc.dvitski.boatenchantments.client.BoatEnchantmentsClient",
+				"value": "cc.dvitski.enchantedsails.client.EnchantedSailsClient",
 				"adapter": "kotlin"
 			}
 		],
 		"fabric-datagen": [
 			{
-				"value": "cc.dvitski.boatenchantments.data.BoatEnchantmentsDataGenerator",
+				"value": "cc.dvitski.enchantedsails.data.EnchantedSailsDataGenerator",
 				"adapter": "kotlin"
 			}
 		]
 	},
 	"mixins": [
-		"boatenchantments.mixins.json",
+		"enchantedsails.mixins.json",
 		{
-			"config": "boatenchantments.client.mixins.json",
+			"config": "enchantedsails.client.mixins.json",
 			"environment": "client"
 		}
 	],
-    "accessWidener": "boatenchantments.accesswidener",
+    "accessWidener": "enchantedsails.accesswidener",
 	"depends": {
 		"minecraft": "~1.21.10",
 		"fabric-api": "*",
-		"fabric-language-kotlin": "*",
-        "fabric-permissions-api-v0": "*"
+		"fabric-language-kotlin": "*"
 	}
 }

@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "boatenchantments:tailwind",
+      "id": "enchantedsails:tailwind",
       "required": false
     },
     {
-      "id": "boatenchantments:control",
+      "id": "enchantedsails:control",
       "required": false
     }
   ]

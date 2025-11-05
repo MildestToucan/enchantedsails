@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "package": "cc.dvitski.enchantedsails.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "mixins": [
+        "AbstractBoatMixin",
+        "BoatItemMixin",
+        "ServerEntityMixin",
+        "VehicleEntityMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+	}
+}
