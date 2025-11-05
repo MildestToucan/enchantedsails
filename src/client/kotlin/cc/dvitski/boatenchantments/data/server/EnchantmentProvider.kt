@@ -34,7 +34,7 @@ class EnchantmentProvider(output: FabricDataOutput, future: CompletableFuture<Ho
             itemTags.getOrThrow(BoatEnchantmentsItemTags.ENCHANTABLE_BOATS),
             Optional.empty(),
             1,
-            3,
+            2,
             Enchantment.dynamicCost(25, 25),
             Enchantment.dynamicCost(75, 25),
             8,
