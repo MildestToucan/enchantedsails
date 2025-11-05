@@ -28,6 +28,12 @@ public abstract class AbstractBoatMixin extends VehicleEntity implements BoatAcc
     private boolean inputUp;
     @Shadow
     private boolean inputDown;
+    @Shadow
+    private float deltaRotation;
+    @Shadow
+    private boolean inputLeft;
+    @Shadow
+    private boolean inputRight;
     @Unique
     private static String ITEM_STACK_KEY = ResourceLocation.fromNamespaceAndPath(BoatEnchantmentsMod.MOD_ID, "stack").toString();
 
@@ -58,6 +64,11 @@ public abstract class AbstractBoatMixin extends VehicleEntity implements BoatAcc
     @ModifyVariable(method = "controlBoat", at = @At(value = "STORE", ordinal = 0))
     private float onControlBoat(float original) {
         return original + BoatExtras.INSTANCE.addBoatSpeed((AbstractBoat) (Object) this, this.itemStack, this.inputUp, this.inputDown);
+    }
+
+    @Inject(method = "floatBoat", at = @At("TAIL"))
+    private void endFloatBoat(CallbackInfo ci) {
+        this.deltaRotation = BoatExtras.INSTANCE.modifyBoatRotation((AbstractBoat) (Object) this, this.itemStack, this.deltaRotation, this.inputLeft, this.inputRight);
     }
 
     @Unique

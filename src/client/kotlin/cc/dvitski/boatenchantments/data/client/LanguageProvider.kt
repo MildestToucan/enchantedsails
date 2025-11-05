@@ -10,6 +10,7 @@ import java.util.concurrent.CompletableFuture
 class LanguageProvider(output: FabricDataOutput, future: CompletableFuture<HolderLookup.Provider>) : FabricLanguageProvider(output, future) {
     override fun generateTranslations(provider: HolderLookup.Provider, builder: TranslationBuilder) {
         builder.addEnchantment(BoatEnchantments.TAILWIND, "Tailwind")
+        builder.addEnchantment(BoatEnchantments.CONTROL, "Control")
 
         builder.add(BoatEnchantmentsItemTags.ENCHANTABLE_BOATS, "Enchantable (Boats)")
     }

@@ -1,0 +1,18 @@
+{
+  "anvil_cost": 10,
+  "description": {
+    "translate": "enchantment.boatenchantments.control"
+  },
+  "max_cost": {
+    "base": 75,
+    "per_level_above_first": 25
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 25,
+    "per_level_above_first": 25
+  },
+  "slots": [],
+  "supported_items": "#boatenchantments:enchantable/boats",
+  "weight": 1
+}

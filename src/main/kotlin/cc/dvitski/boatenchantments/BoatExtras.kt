@@ -14,8 +14,8 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.phys.HitResult
 
 object BoatExtras {
-    fun modifyPlacedBoat(boat: AbstractBoat, level: Level, hit: HitResult, stack: ItemStack, player: Player) {
-        val accessor = boat as BoatAccessor
+    fun modifyPlacedBoat(entity: AbstractBoat, level: Level, hit: HitResult, stack: ItemStack, player: Player) {
+        val accessor = entity as BoatAccessor
         accessor.itemStack = stack
     }
 
@@ -34,12 +34,12 @@ object BoatExtras {
         }
     }
 
-    fun addBoatSpeed(boat: AbstractBoat, stack: ItemStack, inputUp: Boolean, inputDown: Boolean): Float {
-        if (boat.status == AbstractBoat.Status.ON_LAND) {
+    fun addBoatSpeed(entity: AbstractBoat, stack: ItemStack, inputUp: Boolean, inputDown: Boolean): Float {
+        if (entity.status == AbstractBoat.Status.ON_LAND) {
             return 0.0f
         }
 
-        val registryAccess = boat.registryAccess()
+        val registryAccess = entity.registryAccess()
         val enchantments = registryAccess.lookupOrThrow(Registries.ENCHANTMENT)
 
         val tailwindLevel = stack.enchantments.getLevel(enchantments.getOrThrow(BoatEnchantments.TAILWIND))
@@ -52,5 +52,24 @@ object BoatExtras {
                 0.0f
             }
         }
+    }
+
+    fun modifyBoatRotation(entity: AbstractBoat, stack: ItemStack, original: Float, inputLeft: Boolean, inputRight: Boolean): Float {
+        val registryAccess = entity.registryAccess()
+        val enchantments = registryAccess.lookupOrThrow(Registries.ENCHANTMENT)
+
+        val controlLevel = stack.enchantments.getLevel(enchantments.getOrThrow(BoatEnchantments.CONTROL))
+
+        if (controlLevel > 0) {
+            return if (inputLeft) {
+                -6.0f
+            } else if (inputRight) {
+                6.0f
+            } else {
+                0.0f
+            }
+        }
+
+        return original
     }
 }

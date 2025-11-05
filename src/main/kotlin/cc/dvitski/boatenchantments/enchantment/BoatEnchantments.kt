@@ -8,6 +8,7 @@ import net.minecraft.world.item.enchantment.Enchantment
 
 object BoatEnchantments {
     val TAILWIND = register("tailwind")
+    val CONTROL = register("control")
 
     private fun register(id: String): ResourceKey<Enchantment> {
         return ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(BoatEnchantmentsMod.MOD_ID, id))

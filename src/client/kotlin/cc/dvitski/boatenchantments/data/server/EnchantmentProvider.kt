@@ -30,16 +30,33 @@ class EnchantmentProvider(output: FabricDataOutput, future: CompletableFuture<Ho
         }
 
         val itemTags = provider.lookupOrThrow(Registries.ITEM)
-        register(BoatEnchantments.TAILWIND, Enchantment.EnchantmentDefinition(
-            itemTags.getOrThrow(BoatEnchantmentsItemTags.ENCHANTABLE_BOATS),
-            Optional.empty(),
-            1,
-            2,
-            Enchantment.dynamicCost(25, 25),
-            Enchantment.dynamicCost(75, 25),
-            8,
-            emptyList(),
-        ))
+        itemTags.getOrThrow(BoatEnchantmentsItemTags.ENCHANTABLE_BOATS).let { tag ->
+            register(
+                BoatEnchantments.TAILWIND, Enchantment.EnchantmentDefinition(
+                    tag,
+                    Optional.empty(),
+                    1,
+                    2,
+                    Enchantment.dynamicCost(25, 25),
+                    Enchantment.dynamicCost(75, 25),
+                    8,
+                    emptyList(),
+                )
+            )
+
+            register(
+                BoatEnchantments.CONTROL, Enchantment.EnchantmentDefinition(
+                    tag,
+                    Optional.empty(),
+                    1,
+                    1,
+                    Enchantment.dynamicCost(25, 25),
+                    Enchantment.dynamicCost(75, 25),
+                    10,
+                    emptyList(),
+                )
+            )
+        }
     }
 
     override fun getName(): String {
