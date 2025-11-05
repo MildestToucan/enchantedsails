@@ -4,15 +4,15 @@
     "translate": "enchantment.boatenchantments.tailwind"
   },
   "max_cost": {
-    "base": 75,
-    "per_level_above_first": 25
+    "base": 25,
+    "per_level_above_first": 15
   },
   "max_level": 2,
   "min_cost": {
-    "base": 25,
+    "base": 5,
     "per_level_above_first": 25
   },
   "slots": [],
   "supported_items": "#boatenchantments:enchantable/boats",
-  "weight": 1
+  "weight": 8
 }

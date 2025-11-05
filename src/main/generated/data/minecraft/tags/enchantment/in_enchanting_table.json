@@ -3,6 +3,10 @@
     {
       "id": "boatenchantments:tailwind",
       "required": false
+    },
+    {
+      "id": "boatenchantments:control",
+      "required": false
     }
   ]
 }

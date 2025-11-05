@@ -35,10 +35,10 @@ class EnchantmentProvider(output: FabricDataOutput, future: CompletableFuture<Ho
                 BoatEnchantments.TAILWIND, Enchantment.EnchantmentDefinition(
                     tag,
                     Optional.empty(),
-                    1,
+                    8,
                     2,
-                    Enchantment.dynamicCost(25, 25),
-                    Enchantment.dynamicCost(75, 25),
+                    Enchantment.dynamicCost(5, 25),
+                    Enchantment.dynamicCost(25, 15),
                     8,
                     emptyList(),
                 )

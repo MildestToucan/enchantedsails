@@ -13,5 +13,6 @@ class EnchantmentTagProvider(output: FabricDataOutput, future: CompletableFuture
     override fun addTags(provider: HolderLookup.Provider) {
         builder(EnchantmentTags.IN_ENCHANTING_TABLE)
             .addOptional(BoatEnchantments.TAILWIND)
+            .addOptional(BoatEnchantments.CONTROL)
     }
 }
