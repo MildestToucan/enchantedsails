@@ -27,7 +27,7 @@ object ClientBoatExtras {
             return
         }
 
-        state.setData(GLINT_RENDER_STATE, entity.itemStack.isEnchanted)
+        state.setData(GLINT_RENDER_STATE, entity.itemStack.hasFoil())
     }
 
     fun receiveItemStackPayload(entity: Entity, stack: ItemStack) {
