@@ -42,7 +42,8 @@ object BoatHandler {
         val registryAccess = entity.registryAccess()
         val enchantments = registryAccess.lookupOrThrow(Registries.ENCHANTMENT)
 
-        val tailwindLevel = stack.enchantments.getLevel(enchantments.getOrThrow(ESBoatEnchantments.TAILWIND))
+        val tailwindRef = enchantments.get(ESBoatEnchantments.TAILWIND).orElse(null) ?: return 0.0f
+        val tailwindLevel = stack.enchantments.getLevel(tailwindRef)
         return if (inputUp) {
             tailwindLevel * 0.04f / 2
         } else {
@@ -58,7 +59,8 @@ object BoatHandler {
         val registryAccess = entity.registryAccess()
         val enchantments = registryAccess.lookupOrThrow(Registries.ENCHANTMENT)
 
-        val controlLevel = stack.enchantments.getLevel(enchantments.getOrThrow(ESBoatEnchantments.CONTROL))
+        val controlRef = enchantments.get(ESBoatEnchantments.CONTROL).orElse(null) ?: return original
+        val controlLevel = stack.enchantments.getLevel(controlRef)
 
         if (controlLevel > 0) {
             return if (inputLeft) {
