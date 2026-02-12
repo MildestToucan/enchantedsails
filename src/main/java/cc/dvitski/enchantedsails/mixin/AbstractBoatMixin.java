@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractBoat.class)
-public abstract class AbstractBoatMixin extends VehicleEntity implements BoatAccessor {
+abstract class AbstractBoatMixin extends VehicleEntity implements BoatAccessor {
     @Shadow
     private boolean inputUp;
     @Shadow
