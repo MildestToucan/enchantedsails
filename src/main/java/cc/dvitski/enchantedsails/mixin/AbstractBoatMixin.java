@@ -71,14 +71,14 @@ public abstract class AbstractBoatMixin extends VehicleEntity implements BoatAcc
         this.deltaRotation = BoatHandler.INSTANCE.modifyBoatRotation((AbstractBoat) (Object) this, this.itemStack, this.deltaRotation, this.inputLeft, this.inputRight);
     }
 
-    @Unique
     @Override
+    @Unique
     public @NotNull ItemStack getItemStack() {
         return this.itemStack;
     }
 
-    @Unique
     @Override
+    @Unique
     public void setItemStack(@NotNull ItemStack stack) {
         this.itemStack = stack.copy();
         BoatHandler.INSTANCE.sendBoatStackPayload(this, stack);
